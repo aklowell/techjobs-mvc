@@ -27,5 +27,22 @@
         </div>
     </div>
 
+    <div th:fragment="search-display">
+    <div th:if="${jobs} and ${jobs.size()}">
+        <table th:each="job: ${jobs}" th:class="job-listing">
+            <th:block th:each="item : ${job}">
+
+                <tr>
+                    <td th:text="${#strings.capitalizeWords(item.key)}"></td>
+                    <td th:text="${item.value}"></td>
+                </tr>
+
+            </th:block>
+        </table>
+    </div>
+
+
+    </div>
+
 </body>
 </html>
